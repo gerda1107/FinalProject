@@ -1,3 +1,33 @@
+/* HEADER */
+
+.stick {
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 1;
+    height: 70px;
+}
+
+nav {
+    width: 800px;
+}
+
+nav a {
+    color: black;
+    font-weight: 600;
+}
+
+nav a:hover, nav i:hover {
+    color: #003cd4;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .navRes {
+        flex-direction: column;
+    }
+}
+
 /* FOOTER */
 
 footer {
