@@ -22,6 +22,30 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div id="map"></div>
+    </section>
 </main>
+
+<script>
+    function initMap() {
+        const location = {
+            lat: 54.723600,
+            lng: 25.337970
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 18,
+            center: location,
+        });
+
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBknC0Ko5n-KwtXIGIj9-m8Tyxy6JiZqug&callback=initMap&libraries=&v=weekly"></script>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

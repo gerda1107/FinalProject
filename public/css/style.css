@@ -63,7 +63,12 @@ nav a:hover, nav i:hover {
     margin: 0 5px 5px;
 }
 
+/* MAP */
 
+#map {
+    height: 300px;
+    width: 100%;
+}
 
 /* FOOTER */
 
