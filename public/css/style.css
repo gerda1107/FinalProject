@@ -22,11 +22,48 @@ nav a:hover, nav i:hover {
     cursor: pointer;
 }
 
-@media screen and (max-width: 500px) {
-    .navRes {
-        flex-direction: column;
-    }
+/* BACKGROUND IMAGE */
+
+.bgImg {
+    background-image: url(../img/mainBg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 300px;
+    width: 100%;
 }
+
+/* SERVICES */
+
+.container {
+    max-width: 800px;
+    height: 400px;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.services {
+    width: 25%;
+    border: 1px solid #777777;
+    text-align: center;
+}
+
+.services img {
+    width: 100%;
+    height: 40%;
+}
+
+.services h5 {
+    margin: 10px 5px;
+}
+
+.services p {
+    font-size: 14px;
+    margin: 0 5px 5px;
+}
+
+
 
 /* FOOTER */
 
@@ -35,4 +72,25 @@ footer {
     width: 100%;
     height: 70px;
     color: #777777;
+}
+
+/* MEDIA */
+
+@media screen and (max-width: 400px) {
+    .navRes {
+        flex-direction: column;
+    }
+
+    .bgImg {
+        height: 150px;
+    }
+
+    .container {
+    flex-direction: column;
+    height: 100%;
+    }
+
+    .services {
+    width: 70%;
+    }
 }
