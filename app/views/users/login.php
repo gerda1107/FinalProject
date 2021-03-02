@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/head.php'; ?>
 <section class="d-flex justify-content-center align-items-center loginBg p-4">
-
     <div class="container">
         <h2 class="text-center mb-5"><strong>PRISIJUNGTI</strong></h2>
         <?php flash('login_status'); ?>
@@ -22,7 +21,6 @@
             <div class="d-flex justify-content-center">
                 <button type='submit' name="btnName" class="btn btn-dark mt-5" value="login">PRISIJUNGTI</button>
             </div>
-
         </form>
     </div>
 </section>
