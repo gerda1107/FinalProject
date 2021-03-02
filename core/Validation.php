@@ -64,4 +64,12 @@ class Validation
         if ($repeatField !== $this->password) return "Slaptažodžiai nevienodi.";
     }
 
+    public function ifEmptyArr($arr)
+    {
+        foreach ($arr as $var) {
+            if (!empty($var)) return false;
+        }
+        return true;
+    }
+
 }
