@@ -110,6 +110,7 @@ class Users extends Controller
                 $loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
                 if ($loggedInUser) {
+                    $this->createUserSession($loggedInUser);
                     redirect('/pages/index');
                 } else {
                     $data['errors']['passwordErr'] = 'Neteisingas slaptažodis.';
@@ -131,5 +132,11 @@ class Users extends Controller
             ];
             $this->view('users/login', $data);
         }
+    }
+
+    public function createUserSession($userRow)
+    {
+        $_SESSION['user_id'] = $userRow->user_id;
+        $_SESSION['email'] = $userRow->email;
     }
 }
