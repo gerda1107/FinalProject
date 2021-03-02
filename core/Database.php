@@ -60,4 +60,15 @@ class Database
     {
         return $this->stmt->execute();
     }
+
+    public function singleRow()
+    {
+        $this->execute();
+        return $this->stmt->fetch(\PDO::FETCH_OBJ);
+    }
+
+    public function rowCount()
+    {
+        return $this->stmt->rowCount();
+    }
 }
