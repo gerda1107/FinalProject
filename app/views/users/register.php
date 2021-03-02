@@ -1,6 +1,7 @@
 <?php require APPROOT . '/views/inc/head.php'; ?>
 <section class="d-flex justify-content-center registerBg p-1">
     <div class="registerContainer container">
+        <?php flash('register_status'); ?>
         <h2 class="text-center mt-4"><strong>REGISTRUOTIS</strong></h2>
         <form action='' method='post' autocomplete="" class="p-2 mt-4">
             <div class="row mb-3">
