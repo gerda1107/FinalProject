@@ -35,7 +35,6 @@ class Users extends Controller
                     'nameErr' => '',
                     'lastnameErr' => '',
                     'emailErr' => '',
-                    'phoneErr' => '',
                     'passwordErr' => '',
                     'confirmPasswordErr' => '',
                 ],
@@ -43,6 +42,9 @@ class Users extends Controller
 
             $data['errors']['nameErr'] = $this->vld->validateName($data['name']);
             $data['errors']['lastnameErr'] = $this->vld->validateLastame($data['lastname']);
+            $data['errors']['emailErr'] = $this->vld->validateEmail($data['email'], $this->userModel);
+            $data['errors']['passwordErr'] = $this->vld->validatePassword($data['password'], 6, 10);
+            $data['errors']['confirmPasswordErr'] = $this->vld->confirmPassword($data['confirmPassword']);
 
             $this->view('users/register', $data);
         } else {
@@ -59,7 +61,6 @@ class Users extends Controller
                     'nameErr' => '',
                     'lastnameErr' => '',
                     'emailErr' => '',
-                    'phoneErr' => '',
                     'passwordErr' => '',
                     'confirmPasswordErr' => '',
                 ],
