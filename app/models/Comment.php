@@ -15,9 +15,10 @@ class Comment
 
     public function addComment($data)
     {
-        $this->db->query('INSERT INTO comments (user_id, comment_body) VALUES (:user_id, :comment_body)');
+        $this->db->query('INSERT INTO comments (user_id, author, comment_body) VALUES (:user_id, :author, :comment_body)');
 
         $this->db->bind(':user_id', $data['user_id']);
+        $this->db->bind(':author', $data['username']);
         $this->db->bind(':comment_body', $data['commentBody']);
 
         if ($this->db->execute()) {
@@ -25,6 +26,17 @@ class Comment
         } else {
             return false;
         }
+    }
+
+    public function getComments()
+    {
+        $sql = "SELECT * FROM comments";
+
+        $this->db->query($sql);
+        
+        $result = $this->db->resultSet();
+
+        return $result;
     }
 
     public function getUsername($id)

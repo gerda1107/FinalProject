@@ -54,6 +54,7 @@ class Comments extends Controller
             if ($this->vld->ifEmptyArr($data['errors'])) {
                 $commentData = [
                     'user_id' => $data['user_id'],
+                    'username' => $data['username'],
                     'commentBody' => $data['commentBody'],
                 ];
 
@@ -73,5 +74,16 @@ class Comments extends Controller
 
         echo json_encode($result);
         die();  
+    }
+
+    public function getAllComments()
+    {
+        $comments = $this->commentModel->getComments();
+        $data = [
+            'comments' => $comments,
+        ];
+
+        header('Content-Type: application/json');
+        echo json_encode($data);
     }
 }
