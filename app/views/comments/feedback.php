@@ -56,8 +56,31 @@ print_r($data);
 
         function addComment(event) {
             event.preventDefault();
-            console.log('add Comment pls');
+            const addCommentFormData = new FormData(addCommentForm);
+
+            fetch('<?php echo URLROOT . '/comments/addComment/'; ?>', {
+                    method: 'Post',
+                    body: addCommentFormData
+                }).then(resp => resp.json())
+                .then(data => {
+                    console.log(data);
+                }).catch(error => console.error(error));
         }
+
+        fetchComments();
+
+        function fetchComments() {
+            fetch('<?php echo URLROOT . '/comments/getAllComments/'; ?>')
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data);
+                    showComments(data);
+                    });
+                }
+
+            function showComments(itemsArr) {
+
+            }
     </script>
 <?php endif; ?>
 
