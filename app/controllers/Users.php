@@ -46,7 +46,20 @@ class Users extends Controller
             $data['errors']['passwordErr'] = $this->vld->validatePassword($data['password'], 6, 10);
             $data['errors']['confirmPasswordErr'] = $this->vld->confirmPassword($data['confirmPassword']);
 
-            $this->view('users/register', $data);
+            if ($this->vld->ifEmptyArr($data['errors'])) {
+
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                if ($this->userModel->register($data)) {
+                    flash('register_status', 'Registracija sėkminga! Prašome prisijungti.');
+                    redirect('/users/login');
+                } else {
+                    die("Something went wrong in adding user to DB.");
+                }
+            } else {
+                flash('register_status', 'Prašome patikrinti ar viską užpildėte teisingai.', 'alert alert-danger');
+                $this->view('users/register', $data);
+            }
         } else {
             $data = [
                 'name' => '',
