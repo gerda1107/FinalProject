@@ -70,6 +70,43 @@ nav a:hover, nav i:hover {
     width: 100%;
 }
 
+/* LOGIN */
+
+.loginBg {
+    background-image: url(../img/loginBg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 640px;
+    color: #cfcfcf;
+}
+
+/* REGISTER */
+
+.registerBg {
+    background-image: url(../img/registerBg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 640px;
+    color: #f3f3f3;
+}
+
+label {
+    font-weight: bold;
+}
+
+small, sup {
+    color: rgb(238, 61, 30);
+}
+
+sup {
+    color: rgb(238, 61, 30);
+    margin-left: 5px;
+}
+
 /* FOOTER */
 
 footer {
