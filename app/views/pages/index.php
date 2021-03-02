@@ -1,6 +1,4 @@
-<?php require APPROOT . '/views/inc/head.php';
-var_dump(URLROOT);
-?>
+<?php require APPROOT . '/views/inc/head.php';?>
 
 <main>
     <div class="bgImg"></div>
