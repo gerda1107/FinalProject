@@ -42,7 +42,7 @@ class Users extends Controller
 
             $data['errors']['nameErr'] = $this->vld->validateName($data['name']);
             $data['errors']['lastnameErr'] = $this->vld->validateLastame($data['lastname']);
-            $data['errors']['emailErr'] = $this->vld->validateEmail($data['email'], $this->userModel);
+            $data['errors']['emailErr'] = $this->vld->validateRegisterEmail($data['email'], $this->userModel);
             $data['errors']['passwordErr'] = $this->vld->validatePassword($data['password'], 6, 10);
             $data['errors']['confirmPasswordErr'] = $this->vld->confirmPassword($data['confirmPassword']);
 
@@ -84,7 +84,52 @@ class Users extends Controller
 
     public function login()
     {
-        $data = [];
-        $this->view('users/login', $data);
+        if (ifRequestIsPost()) {
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'email' => trim($_POST['email']),
+                'password' => trim($_POST['password']),
+
+                'errors' => [
+                    'emailErr' => '',
+                    'passwordErr' => '',
+                ],
+            ];
+
+            $data['errors']['emailErr'] = $this->vld->validateLoginEmail($data['email'], $this->userModel);
+           
+            if (empty($data['password'])) {
+                $data['errors']['passwordErr'] = 'Prašome įvesti slaptažodį.';
+            }
+
+
+            if ($this->vld->ifEmptyArr($data['errors'])) {
+
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+                if ($loggedInUser) {
+                    redirect('/pages/index');
+                } else {
+                    $data['errors']['passwordErr'] = 'Neteisingas slaptažodis.';
+                    $this->view('users/login', $data);
+                }
+            } else {
+                flash('register_status', 'Prašome patikrinti ar viską užpildėte teisingai.', 'alert alert-danger');
+                $this->view('users/login', $data);
+            }
+        } else {
+            $data = [
+                'email' => '',
+                'password' => '',
+
+                'errors' => [
+                    'emailErr' => '',
+                    'passwordErr' => '',
+                ],
+            ];
+            $this->view('users/login', $data);
+        }
     }
 }
