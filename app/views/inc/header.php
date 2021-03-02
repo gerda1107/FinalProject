@@ -3,7 +3,7 @@
 
         <div class="d-flex justify-content-between align-items-center">
             <a href="<?php echo URLROOT; ?>" class="nav-link">TITULINIS</a>
-            <a class="nav-link" href="<?php echo URLROOT; ?>">ATSILIEPIMAI</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/comments/feedback">ATSILIEPIMAI</a>
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
