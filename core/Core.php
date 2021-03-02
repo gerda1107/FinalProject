@@ -3,6 +3,7 @@
 namespace core;
 
 use app\controllers\Pages;
+use app\controllers\Users;
 
 class Core
 {
@@ -25,6 +26,8 @@ class Core
 
         if ($this->currentController === "Pages") {
             $this->currentController = new Pages;
+        } elseif ($this->currentController === "Users") {
+            $this->currentController = new Users;
         }
 
         if (isset($url[1])) {
