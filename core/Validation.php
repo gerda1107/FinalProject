@@ -75,6 +75,15 @@ class Validation
         if ($repeatField !== $this->password) return "Slaptažodžiai nevienodi.";
     }
 
+    public function validateComment($field)
+    {
+        if (empty($field)) return 'Prašome įvesti komentarą.';
+
+        if (strlen($field) > 500) return 'Komentaras per ilgas.';
+
+        return '';
+    }
+
     public function ifEmptyArr($arr)
     {
         foreach ($arr as $var) {
