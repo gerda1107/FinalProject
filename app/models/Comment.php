@@ -30,7 +30,7 @@ class Comment
 
     public function getComments()
     {
-        $sql = "SELECT * FROM comments";
+        $sql = "SELECT * FROM comments ORDER BY created_at DESC";
 
         $this->db->query($sql);
         
