@@ -8,15 +8,15 @@
             <div class="row mb-3">
                 <label for='email' class="col-sm-2 col-form-label">EL. PAŠTAS</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='email' id='email' placeholder="ex. johnwick@gmail.com" value="">
-                    <small class="error-alert"></small>
+                    <input type="text" class="form-control <?php echo (!empty($data['errors']['emailErr'])) ? 'is-invalid' : ''; ?>" name='email' id='email' placeholder="ex. johnwick@gmail.com" value="<?php echo $data['email']; ?>">
+                    <small class="error-alert"><?php echo $data['errors']['emailErr']; ?></small>
                 </div>
             </div>
             <div class="row mt-4">
                 <label for='passwordLog' class="col-sm-2 col-form-label">SLAPTAŽODIS</label>
                 <div class="col-sm-10">
-                    <input class="form-control" name='password' id='password' value="" type="password">
-                    <small class="error-alert"></small>
+                    <input class="form-control <?php echo (!empty($data['errors']['passwordErr'])) ? 'is-invalid' : ''; ?>" name='password' id='password' value="<?php echo $data['password']; ?>" type="password">
+                    <small class="error-alert"><?php echo $data['errors']['passwordErr']; ?></small>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
