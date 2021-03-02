@@ -7,15 +7,15 @@
             <div class="row mb-3">
                 <label for='name' class="col-sm-2 col-form-label">VARDAS<sup>*</sup></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='name' id='name' placeholder="ex. Jenny" value="">
-                    <small class="error-alert"></small>
+                    <input type="text" class="form-control <?php echo (!empty($data['errors']['nameErr'])) ? 'is-invalid' : ''; ?>" name='name' id='name' placeholder="ex. Jenny" value="<?php echo $data['name']; ?>">
+                    <small class="error-alert"><?php echo $data['errors']['nameErr']; ?></small>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for='lastname' class="col-sm-2 col-form-label">PAVARDĖ<sup>*</sup></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='lastname' id='lastname' placeholder="ex. Smiths" value="">
-                    <small class="error-alert"></small>
+                    <input type="text" class="form-control <?php echo (!empty($data['errors']['lastnameErr'])) ? 'is-invalid' : ''; ?>" name='lastname' id='lastname' placeholder="ex. Smiths" value="<?php echo $data['lastname']; ?>">
+                    <small class="error-alert"><?php echo $data['errors']['lastnameErr']; ?></small>
                 </div>
             </div>
             <div class="row mb-3">
