@@ -25,3 +25,8 @@ function flash($name = '', $message = '', $class = 'alert alert-success')
     }
 }
 
+function redirect($whereTo)
+{
+    header("Location: " . URLROOT . "$whereTo");
+}
+
