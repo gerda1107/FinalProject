@@ -111,6 +111,12 @@ sup {
     margin-left: 5px;
 }
 
+/* FEEDBACK */
+
+#feedbackFormCont {
+    width: 70%
+}
+
 /* FOOTER */
 
 footer {
