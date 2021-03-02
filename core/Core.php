@@ -2,6 +2,7 @@
 
 namespace core;
 
+use app\controllers\Comments;
 use app\controllers\Pages;
 use app\controllers\Users;
 
@@ -28,6 +29,8 @@ class Core
             $this->currentController = new Pages;
         } elseif ($this->currentController === "Users") {
             $this->currentController = new Users;
+        } elseif ($this->currentController === "Comments") {
+            $this->currentController = new Comments;
         }
 
         if (isset($url[1])) {

@@ -71,4 +71,10 @@ class Database
     {
         return $this->stmt->rowCount();
     }
+
+    public function resultSet()
+    {
+        $this->execute();
+        return $this->stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }
