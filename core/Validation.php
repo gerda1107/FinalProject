@@ -28,13 +28,24 @@ class Validation
         return '';
     }
 
-    public function validateEmail($field, &$userModel)
+    public function validateRegisterEmail($field, &$userModel)
     {
         if (empty($field)) return "Prašome įvesti savo el. paštą.";
 
         if (filter_var($field, FILTER_VALIDATE_EMAIL) === false) return "Prašome patikrinti ar el.paštas įvestas teisingai.";
 
         if ($userModel->findUserByEmail($field)) return "Toks el.paštas jau egzistuoja.";
+
+        return '';
+    }
+
+    public function validateLoginEmail($field, &$userModel)
+    {
+        if (empty($field)) return "Prašome įvesti savo el. paštą.";
+
+        if (filter_var($field, FILTER_VALIDATE_EMAIL) === false) return "Prašome patikrinti ar el.paštas įvestas teisingai.";
+
+        if (!$userModel->findUserByEmail($field)) return "Toks vartotojas neegzistuoja.";
 
         return '';
     }
