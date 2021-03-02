@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2 class="text-center mb-5"><strong>PRISIJUNGTI</strong></h2>
-
+        <?php flash('login_status'); ?>
         <form action='' method='post' class="p-2">
             <div class="row mb-3">
                 <label for='email' class="col-sm-2 col-form-label">EL. PAŠTAS</label>

@@ -117,7 +117,7 @@ class Users extends Controller
                     $this->view('users/login', $data);
                 }
             } else {
-                flash('register_status', 'Prašome patikrinti ar viską užpildėte teisingai.', 'alert alert-danger');
+                flash('login_status', 'Prašome patikrinti ar viską užpildėte teisingai.', 'alert alert-danger');
                 $this->view('users/login', $data);
             }
         } else {
@@ -138,5 +138,15 @@ class Users extends Controller
     {
         $_SESSION['user_id'] = $userRow->user_id;
         $_SESSION['email'] = $userRow->email;
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['email']);
+
+        session_destroy();
+
+        redirect('/pages/index');
     }
 }
