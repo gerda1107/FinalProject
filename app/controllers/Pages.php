@@ -7,7 +7,9 @@ class Pages extends Controller
 {
     public function index()
     {
-        $data = [];
+        $data = [
+            'current' => 'home',
+        ];
         $this->view('pages/index', $data);
     }
 }

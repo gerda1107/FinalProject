@@ -21,10 +21,13 @@ class Comments extends Controller
     {
         if(isset($_SESSION['user_id'])) {
           $data = [
-            'username' => $this->commentModel->getUsername($_SESSION['user_id'])
-            ];  
+            'username' => $this->commentModel->getUsername($_SESSION['user_id']),
+            'current' => 'comments',
+        ];  
         } else {
-             $data = [];
+             $data = [
+                'current' => 'comments'
+             ];
         }
         
         $this->view('comments/feedback', $data);
