@@ -22,6 +22,11 @@ nav a:hover, nav i:hover {
     cursor: pointer;
 }
 
+.activeLink {
+    color: #003cd4;
+    font-weight: bold;
+}
+
 /* BACKGROUND IMAGE */
 
 .bgImg {
@@ -54,8 +59,9 @@ nav a:hover, nav i:hover {
     height: 40%;
 }
 
-.services h5 {
+.servicesHeader {
     margin: 10px 5px;
+    font-weight: bold;
 }
 
 .services p {
