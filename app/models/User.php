@@ -4,6 +4,9 @@ namespace app\models;
 
 use core\Database;
 
+/**
+ * User model class to get needed info from DB.
+ */
 class User
 {
     private $db;
@@ -13,6 +16,12 @@ class User
         $this->db = new Database;
     }
 
+    /**
+     * Insert given data to DB.
+     *
+     * @param array $data
+     * @return bool
+     */
     public function register($data)
     {
         $this->db->query("INSERT INTO users (`name`, `lastname`, `email`, `phone`, `address`, `password`) VALUES (:name, :lastname, :email, :phone, :address, :password)");
@@ -31,6 +40,12 @@ class User
         }
     }
 
+    /**
+     * Find user by email in DB.
+     *
+     * @param string $email
+     * @return bool
+     */
     public function findUserByEmail($email)
     {
         $this->db->query("SELECT * FROM users WHERE email = :email");
@@ -45,6 +60,13 @@ class User
         }
     }
 
+    /**
+     * If user exists, select needed info from db
+     *
+     * @param string $email
+     * @param string $notHashedPass
+     * @return bool
+     */
     public function login($email, $notHashedPass)
     {
         $this->db->query("SELECT * FROM users WHERE `email` = :email");

@@ -2,10 +2,19 @@
 
 namespace core;
 
+/**
+ * Class to validate inputs and other data
+ */
 class Validation
 {
     private $password;
 
+    /**
+     * If empty, has other chars than name or too long we return err message. Else we return empty string.
+     *
+     * @param string $field
+     * @return string
+     */
     public function validateName($field)
     {
         if (empty($field)) return 'Prašome įvesti vardą.';
@@ -17,6 +26,12 @@ class Validation
         return '';
     }
 
+    /**
+     * If empty, has other chars than lastname or too long we return err message. Else we return empty string.
+     *
+     * @param string $field
+     * @return string
+     */
     public function validateLastame($field)
     {
         if (empty($field)) return 'Prašome įvesti pavardę.';
@@ -28,6 +43,13 @@ class Validation
         return '';
     }
 
+    /**
+     * If empty, not valid or already exists in db we return err message. Else we return empty string.
+     *
+     * @param string $field
+     * @param object $userModel
+     * @return string
+     */
     public function validateRegisterEmail($field, &$userModel)
     {
         if (empty($field)) return "Prašome įvesti savo el. paštą.";
@@ -39,6 +61,13 @@ class Validation
         return '';
     }
 
+    /**
+     * If empty, not valid or email does not exists in db we return err message. Else we return empty string.
+     *
+     * @param string $field
+     * @param object $userModel
+     * @return string
+     */
     public function validateLoginEmail($field, &$userModel)
     {
         if (empty($field)) return "Prašome įvesti savo el. paštą.";
@@ -50,6 +79,14 @@ class Validation
         return '';
     }
 
+    /**
+     * If empty, not long enough, too long or does not have int/char we return err message. Else we return empty string.
+     *
+     * @param string $passField
+     * @param int $min
+     * @param int $max
+     * @return string
+     */
     public function validatePassword($passField, $min, $max)
     {
         if (empty($passField)) return "Prašome įvesti slaptažodį.";
@@ -66,6 +103,12 @@ class Validation
         return '';
     }
 
+    /**
+     * If empty, first pass field not given or does not match we return err message.
+     *
+     * @param string $repeatField
+     * @return string
+     */
     public function confirmPassword($repeatField)
     {
         if (empty($repeatField)) return "Prašome pakartoti slaptažodį.";
@@ -75,6 +118,12 @@ class Validation
         if ($repeatField !== $this->password) return "Slaptažodžiai nevienodi.";
     }
 
+    /**
+     * If empty or too long we return err message. Else return string.
+     *
+     * @param string $field
+     * @return string
+     */
     public function validateComment($field)
     {
         if (empty($field)) return 'Prašome įvesti komentarą.';
@@ -84,6 +133,12 @@ class Validation
         return '';
     }
 
+    /**
+     * If arr empty, return true. Else return false.
+     *
+     * @param array $arr
+     * @return bool
+     */
     public function ifEmptyArr($arr)
     {
         foreach ($arr as $var) {
@@ -91,5 +146,4 @@ class Validation
         }
         return true;
     }
-
 }
