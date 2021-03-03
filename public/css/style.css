@@ -2,7 +2,7 @@
 
 .stick {
     position: sticky;
-    background-color: white;
+    background-color: #f3f3f3;
     top: 0;
     z-index: 1;
     height: 70px;
@@ -121,6 +121,28 @@ sup {
 
 #feedbackFormCont {
     width: 70%
+}
+
+.feedbackHead {
+    color: #003cd4;
+    padding: 20px;
+}
+
+.feedbackRegister {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.feedbackRegister a {
+    color: #003cd4;
+}
+
+#feedbackFormCont {
+    width: 52%;
+}
+
+#commentBtn {
+    width: 100%;
 }
 
 /* FOOTER */
