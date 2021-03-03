@@ -143,6 +143,10 @@ class Users extends Controller
         $_SESSION['email'] = $userRow->email;
     }
 
+    /**
+     * Destroy Session.
+     *
+     */
     public function logout()
     {
         unset($_SESSION['user_id']);

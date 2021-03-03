@@ -2,6 +2,9 @@
 
 namespace core;
 
+/**
+ * Base Controller class
+ */
 class Controller
 {
     public function model($model)

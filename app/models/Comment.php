@@ -4,6 +4,9 @@ namespace app\models;
 
 use core\Database;
 
+/**
+ * Class for getting and adding comments to DB.
+ */
 class Comment
 {
     private $db;
@@ -13,6 +16,12 @@ class Comment
         $this->db = new Database;
     }
 
+    /**
+     * Function to add comments to DB.
+     *
+     * @param array $data
+     * @return bool
+     */
     public function addComment($data)
     {
         $this->db->query('INSERT INTO comments (user_id, author, comment_body) VALUES (:user_id, :author, :comment_body)');
@@ -28,6 +37,11 @@ class Comment
         }
     }
 
+    /**
+     * Function to get all comments from DB.
+     *
+     * @return object
+     */
     public function getComments()
     {
         $sql = "SELECT * FROM comments ORDER BY created_at DESC";
@@ -39,6 +53,11 @@ class Comment
         return $result;
     }
 
+    /**
+     * Function to get username by ID from DB.
+     *
+     * @param int $id
+     */
     public function getUsername($id)
     {
         $this->db->query("SELECT name, lastname FROM users WHERE user_id = :id");
