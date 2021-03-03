@@ -2,7 +2,7 @@
 
 .stick {
     position: sticky;
-    background-color: white;
+    background-color: #f3f3f3;
     top: 0;
     z-index: 1;
     height: 70px;
@@ -20,6 +20,11 @@ nav a {
 nav a:hover, nav i:hover {
     color: #003cd4;
     cursor: pointer;
+}
+
+.activeLink {
+    color: #003cd4;
+    font-weight: bold;
 }
 
 /* BACKGROUND IMAGE */
@@ -54,8 +59,9 @@ nav a:hover, nav i:hover {
     height: 40%;
 }
 
-.services h5 {
+.servicesHeader {
     margin: 10px 5px;
+    font-weight: bold;
 }
 
 .services p {
@@ -115,6 +121,28 @@ sup {
 
 #feedbackFormCont {
     width: 70%
+}
+
+.feedbackHead {
+    color: #003cd4;
+    padding: 20px;
+}
+
+.feedbackRegister {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.feedbackRegister a {
+    color: #003cd4;
+}
+
+#feedbackFormCont {
+    width: 52%;
+}
+
+#commentBtn {
+    width: 100%;
 }
 
 /* FOOTER */

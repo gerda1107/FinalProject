@@ -30,6 +30,7 @@ class Users extends Controller
                 'address' => trim($_POST['address']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
+                'current' => 'register',
 
                 'errors' => [
                     'nameErr' => '',
@@ -51,7 +52,6 @@ class Users extends Controller
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                 if ($this->userModel->register($data)) {
-                    flash('register_status', 'Registracija sėkminga! Prašome prisijungti.');
                     redirect('/users/login');
                 } else {
                     die("Something went wrong in adding user to DB.");
@@ -69,6 +69,7 @@ class Users extends Controller
                 'address' => '',
                 'password' => '',
                 'confirmPassword' => '',
+                'current' => 'register',
 
                 'errors' => [
                     'nameErr' => '',
@@ -91,6 +92,7 @@ class Users extends Controller
             $data = [
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
+                'current' => 'login',
 
                 'errors' => [
                     'emailErr' => '',
@@ -124,6 +126,7 @@ class Users extends Controller
             $data = [
                 'email' => '',
                 'password' => '',
+                'current' => 'login',
 
                 'errors' => [
                     'emailErr' => '',

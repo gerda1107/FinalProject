@@ -1,5 +1,4 @@
-<?php require APPROOT . '/views/inc/head.php';?>
-
+<?php require APPROOT . '/views/inc/head.php'; ?>
 <main>
     <div class="bgImg"></div>
 
@@ -7,17 +6,17 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="services">
                 <img src="<?php echo URLROOT; ?>/public/img/img1.jpg" alt="treniruotes">
-                <h5>TRENIRUOTĖS</h5>
+                <div class="servicesHeader">TRENIRUOTĖS</div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ducimus aperiam officiis rerum.</p>
             </div>
             <div class="services">
                 <img src="<?php echo URLROOT; ?>/public/img/img2.jpg" alt="baseinas">
-                <h5>BASEINAS</h5>
+                <div class="servicesHeader">BASEINAS</div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab fugit harum sint officiis ullam laborum.</p>
             </div>
             <div class="services">
                 <img src="<?php echo URLROOT; ?>/public/img/img3.jpg" alt="mityba">
-                <h5>MITYBOS PLANAI</h5>
+                <div class="servicesHeader">MITYBOS PLANAI</div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ullam laborum assumenda dicta.</p>
             </div>
         </div>
@@ -47,5 +46,4 @@
 </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBknC0Ko5n-KwtXIGIj9-m8Tyxy6JiZqug&callback=initMap&libraries=&v=weekly"></script>
-
 <?php require APPROOT . '/views/inc/footer.php'; ?>
